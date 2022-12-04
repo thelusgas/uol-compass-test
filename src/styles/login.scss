@@ -1,0 +1,128 @@
+@use "./_variables" as v;
+
+$bg-image-path: "../assets/login-bg.jpg";
+
+.landing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  background: v.$bg-dark;
+  color: v.$primary;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  padding: 19.7rem 28.7rem;
+
+  &__title {
+    display: flex;
+    gap: 0.3rem;
+    flex-direction: column;
+    padding-bottom: 2rem;
+
+    color: v.$secondary;
+    font-weight: 400;
+
+    &--primary {
+      font-size: 6rem;
+      line-height: 9rem;
+    }
+    &--secondary {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  &__form {
+    margin-top: 13.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    &--title {
+      font-size: 3rem;
+      line-height: 4.5rem;
+    }
+
+    &--input-group {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3.3rem;
+    }
+
+    &--button {
+      margin-top: 13.1rem;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 2.3rem 0 1.7rem 0;
+
+      background: v.$gradient-orange;
+      box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
+
+      border: none;
+      border-radius: 5rem;
+
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      line-height: 2.7rem;
+      color: v.$primary;
+
+      @media (hover: hover) {
+        &:hover {
+          filter: brightness(1.1);
+        }
+      }
+      transition: filter 0.2s;
+    }
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__icon {
+      position: absolute;
+      align-self: flex-end;
+      justify-self: flex-end;
+      top: 2rem;
+      right: 2.3rem;
+    }
+
+    &__input {
+      display: flex;
+      padding: 2rem 2rem 1.6rem 2rem;
+
+      font-family: "Poppins", sans-serif;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+
+      color: v.$secondary;
+      background: transparent;
+
+      border: 1px solid v.$primary;
+      border-radius: 5rem;
+
+      &::placeholder {
+        color: v.$secondary;
+      }
+    }
+  }
+}
+
+.landing-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: url($bg-image-path) no-repeat center center/cover;
+  padding: 2.5rem;
+}
