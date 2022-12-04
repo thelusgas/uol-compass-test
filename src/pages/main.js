@@ -1,5 +1,7 @@
 import Navigo from "navigo";
 import { Login } from "./login";
+import { Dashboard } from "./dashboard";
+
 export const router = new Navigo("/");
 
 window.addEventListener("load", () => {
@@ -7,10 +9,7 @@ window.addEventListener("load", () => {
     document.querySelector("#app").insertAdjacentHTML("beforeend", content);
 
   router
-    .on("/p1", (match) => {
-      console.log(match);
-      render("p2");
-    })
+    .on("/dashboard", Dashboard)
     .on("/p2", (match) => {
       console.log(match);
       render("p2");

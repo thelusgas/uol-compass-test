@@ -1,0 +1,220 @@
+@use "../../styles/variables" as v;
+
+$bg-image-path: "../../assets/ball-transparent.png";
+
+.dashboard {
+  display: grid;
+  grid-template-rows: min-content 1fr 10rem;
+  min-width: 100%;
+  background: v.$bg-light;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2.5rem 4rem;
+
+    &--logo {
+      width: 28rem;
+      padding: 1.2rem;
+    }
+  }
+
+  &__clock {
+    display: none;
+    @include v.media-lg {
+      display: flex;
+    }
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--time {
+      @extend .typography-xxxxl-bold;
+      line-height: 14.4rem;
+      color: v.$secondary-on-light;
+    }
+
+    &--date {
+      @extend .typography-xxs;
+      color: v.$secondary-on-light;
+    }
+  }
+
+  &__climate {
+    display: grid;
+    grid-template-areas: "location location" "icon temperature";
+    align-items: center;
+
+    &--icon {
+      grid-area: icon;
+    }
+
+    &--temperature {
+      @extend .typography-xl-bold;
+      color: v.$secondary-on-light;
+      grid-area: temperature;
+    }
+
+    &--location {
+      @extend .typography-xxs;
+      color: v.$secondary-on-light;
+      grid-area: location;
+      white-space: nowrap;
+    }
+  }
+
+  &__main {
+    background: url($bg-image-path) no-repeat bottom left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: right;
+    padding: 15.1rem 13.4rem;
+
+    &--text-wrapper {
+      display: none;
+      @include v.media-lg {
+        display: flex;
+      }
+
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
+    }
+
+    &--text-small {
+      @extend .typography-ms;
+      color: v.$secondary-on-light;
+    }
+
+    &--text-medium {
+      @extend .typography-l;
+      color: v.$primary-on-light;
+    }
+
+    &--text-large {
+      @extend .typography-xxxl-bold;
+      color: v.$primary-on-light;
+    }
+  }
+
+  &__footer {
+    background: v.$bg-dark-secondary;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 37rem;
+
+    &--text-wrapper {
+      display: none;
+      @include v.media-xl {
+        display: flex;
+      }
+
+      flex-direction: column;
+      border-right: 1px solid v.$primary-on-dark;
+      padding: 1.7rem;
+      margin-right: -24rem;
+      max-width: 54rem;
+    }
+
+    &--text {
+      @extend .typography-xxxs;
+      color: v.$primary-on-dark;
+      text-align: right;
+    }
+
+    &--timer-wrapper {
+      display: none;
+      @include v.media-xl {
+        display: grid;
+      }
+
+      grid-template-areas: "text-first timer" "text-first text-second";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr min-content;
+      justify-items: center;
+
+      grid-column-gap: 3.4rem;
+    }
+
+    &--text-small {
+      @extend .typography-xxs;
+      color: v.$primary-on-dark;
+      &:first-child {
+        grid-area: text-first;
+        text-align: right;
+        align-self: center;
+        max-width: 10rem;
+      }
+      &:last-child {
+        grid-area: text-second;
+      }
+    }
+
+    &--timer {
+      @extend .typography-xl-bold;
+      line-height: 4.8rem;
+      color: v.$primary-on-dark;
+      grid-area: timer;
+      align-self: flex-end;
+    }
+
+    &--btn-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      min-width: 100%;
+      min-height: 100%;
+
+      @include v.media-xl {
+        flex-direction: row;
+        min-width: auto;
+        > * {
+          flex: 1 1 100%;
+        }
+      }
+
+      justify-content: flex-end;
+    }
+  }
+}
+
+.footer-button {
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: flex;
+  height: inherit;
+  padding: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  @extend .typography-xxxs-bold;
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: v.$primary-on-light;
+    }
+  }
+  transition: border-color 0.2s;
+
+  &--primary {
+    @extend .footer-button;
+    @extend .typography-xxxs-bold;
+    background: v.$primary-on-dark;
+    color: v.$primary-on-light;
+  }
+
+  &--secondary {
+    @extend .footer-button;
+    @extend .typography-xxxs-bold;
+    background: v.$bg-dark-secondary;
+    color: v.$primary-on-dark;
+    flex-grow: 2;
+    @include v.media-xl {
+      flex-grow: 1;
+    }
+  }
+}

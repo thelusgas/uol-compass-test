@@ -9,7 +9,7 @@ $bg-image-path: "../../assets/login-bg.jpg";
   min-width: 100%;
 
   background: v.$bg-dark;
-  color: v.$primary;
+  color: v.$primary-on-dark;
 }
 
 .login {
@@ -43,7 +43,7 @@ $bg-image-path: "../../assets/login-bg.jpg";
     gap: 0.3rem;
     flex-direction: column;
 
-    color: v.$secondary;
+    color: v.$secondary-on-dark;
     font-weight: 400;
 
     &--primary {
@@ -96,7 +96,7 @@ $bg-image-path: "../../assets/login-bg.jpg";
       border-radius: 5rem;
 
       @extend .typography-s-bold;
-      color: v.$primary;
+      color: v.$primary-on-dark;
 
       @media (hover: hover) {
         &:hover {
@@ -133,11 +133,11 @@ $bg-image-path: "../../assets/login-bg.jpg";
       display: flex;
 
       @extend .typography-xs;
-      color: v.$secondary;
+      color: v.$secondary-on-dark;
 
       background: transparent;
 
-      border: 1px solid v.$primary;
+      border: 1px solid v.$primary-on-dark;
       border-radius: 5rem;
 
       &::placeholder {
