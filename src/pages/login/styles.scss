@@ -1,12 +1,13 @@
-@use "./_variables" as v;
+@use "../../styles/variables" as v;
 
-$bg-image-path: "../assets/login-bg.jpg";
+$bg-image-path: "../../assets/login-bg.jpg";
 
 .landing {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  justify-content: center;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  min-width: 100%;
+
   background: v.$bg-dark;
   color: v.$primary;
 }
@@ -14,40 +15,65 @@ $bg-image-path: "../assets/login-bg.jpg";
 .login {
   display: flex;
   flex-direction: column;
-  padding: 19.7rem 28.7rem;
+
+  padding-block: 3.3rem;
+  padding-inline: 11rem;
+
+  @include v.media-xxl {
+    padding-block: 19.7rem;
+    padding-inline: 28.7rem;
+  }
+
+  &__logo {
+    display: block;
+    width: 34.9rem;
+    @include v.media-md {
+      display: none;
+    }
+  }
 
   &__title {
+    margin-top: 7.6rem;
+
+    @include v.media-md {
+      margin-top: 0;
+    }
+
     display: flex;
     gap: 0.3rem;
     flex-direction: column;
-    padding-bottom: 2rem;
 
     color: v.$secondary;
     font-weight: 400;
 
     &--primary {
-      font-size: 6rem;
-      line-height: 9rem;
+      @extend .typography-xxl;
     }
     &--secondary {
-      font-size: 1.6rem;
-      line-height: 2.4rem;
+      @extend .typography-xs;
+
+      max-width: 30rem;
     }
   }
 
   &__form {
-    margin-top: 13.5rem;
+    margin-top: 7.6rem;
+
+    @include v.media-md {
+      margin-top: 13.5rem;
+    }
+
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
 
     &--title {
-      font-size: 3rem;
-      line-height: 4.5rem;
+      @extend .typography-m;
     }
 
     &--input-group {
       margin-top: 2.5rem;
+
       display: flex;
       flex-direction: column;
       gap: 3.3rem;
@@ -61,18 +87,15 @@ $bg-image-path: "../assets/login-bg.jpg";
       align-items: center;
       justify-content: center;
 
-      padding: 2.3rem 0 1.7rem 0;
+      padding-block: 2.3rem 1.7rem;
 
       background: v.$gradient-orange;
-      box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
+      box-shadow: v.$box-shadow-btn;
 
       border: none;
       border-radius: 5rem;
 
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      line-height: 2.7rem;
+      @extend .typography-s-bold;
       color: v.$primary;
 
       @media (hover: hover) {
@@ -85,44 +108,54 @@ $bg-image-path: "../assets/login-bg.jpg";
   }
 
   .input-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    > &__icon,
+    &__input {
+      grid-row: 1 / 2;
+    }
 
     &__icon {
-      position: absolute;
-      align-self: flex-end;
+      grid-column: 5 / -1;
+
+      padding-right: 2.3rem;
+
+      align-self: center;
       justify-self: flex-end;
-      top: 2rem;
-      right: 2.3rem;
     }
 
     &__input {
-      display: flex;
+      grid-column: 1 / -1;
+
       padding: 2rem 2rem 1.6rem 2rem;
 
-      font-family: "Poppins", sans-serif;
-      font-size: 1.6rem;
-      line-height: 2.4rem;
+      display: flex;
 
+      @extend .typography-xs;
       color: v.$secondary;
+
       background: transparent;
 
       border: 1px solid v.$primary;
       border-radius: 5rem;
 
       &::placeholder {
-        color: v.$secondary;
+        color: inherit;
       }
     }
   }
 }
 
 .landing-image {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background: url($bg-image-path) no-repeat center center/cover;
   padding: 2.5rem;
+
+  @include v.media-md {
+    display: flex;
+  }
 }

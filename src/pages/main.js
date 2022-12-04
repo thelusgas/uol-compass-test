@@ -1,14 +1,10 @@
 import Navigo from "navigo";
 import { Login } from "./login";
-
-function renderLogin() {
-  document.querySelector("#app").innerHTML = Login();
-}
+export const router = new Navigo("/");
 
 window.addEventListener("load", () => {
-  const router = new Navigo("/");
   const render = (content) =>
-    document.querySelector("#root").insertAdjacentHTML("beforeend", content);
+    document.querySelector("#app").insertAdjacentHTML("beforeend", content);
 
   router
     .on("/p1", (match) => {
@@ -19,6 +15,6 @@ window.addEventListener("load", () => {
       console.log(match);
       render("p2");
     })
-    .on("/", renderLogin)
+    .on("/", Login)
     .resolve();
 });

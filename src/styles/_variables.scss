@@ -1,4 +1,152 @@
+// colors
 $bg-dark: linear-gradient(180deg, #33383d 0%, #1c1d20 100%);
+$bg-dark-secondary: linear-gradient(90.16deg, #33383d 0%, #1c1d20 100%);
+$bg-light: linear-gradient(105.96deg, #ffffff 0%, #f0f0f0 97.86%);
+
 $primary: #ffffff;
 $secondary: #e0e0e0;
+
 $gradient-orange: linear-gradient(90deg, #ff2d04 0%, #c13216 100%);
+$gradient-blue: linear-gradient(90deg, #0487ff 0%, #1665c1 100%);
+
+// typography
+.typography-xxxxl {
+  font-size: 14.4rem;
+  line-height: 21.6rem;
+}
+
+.typography-xxxxl-bold {
+  @extend .typography-xxl;
+  font-weight: 700;
+}
+
+.typography-xxxl {
+  font-size: 6.4rem;
+  line-height: 9.6rem;
+}
+
+.typography-xxxl-bold {
+  @extend .typography-xxxl;
+  font-weight: 700;
+}
+
+.typography-xxl {
+  font-size: 6rem;
+  line-height: 9rem;
+  font-weight: 400;
+}
+
+.typography-xxl-bold {
+  @extend .typography-xxl;
+  font-weight: 700;
+}
+
+.typography-xl {
+  font-size: 4.8rem;
+  line-height: 7.2rem;
+}
+
+.typography-xl-bold {
+  @extend .typography-xl;
+  font-weight: 700;
+}
+
+.typography-l {
+  font-size: 3.6rem;
+  line-height: 5.4rem;
+}
+
+.typography-l-bold {
+  @extend .typography-l;
+  font-weight: 700;
+}
+
+.typography-m {
+  font-size: 3rem;
+  line-height: 4.5rem;
+  font-weight: 400;
+}
+
+.typography-m-bold {
+  @extend .typography-m;
+  font-weight: 700;
+}
+
+.typography-s {
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  font-weight: 400;
+}
+
+.typography-s-bold {
+  @extend .typography-s;
+  font-weight: 700;
+}
+
+.typography-xs {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 400;
+}
+
+.typography-xs-bold {
+  @extend .typography-xs;
+  font-weight: 700;
+}
+
+.typography-xxs {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  font-weight: 400;
+}
+
+.typography-xxs-bold {
+  @extend .typography-xxs;
+  font-weight: 700;
+}
+
+.typography-xxxs {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-weight: 400;
+}
+
+// media queries
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+$screen-xxl-min: 1400px;
+
+@mixin media-sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin media-xxl {
+  @media (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+
+// other
+$box-shadow-btn: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
