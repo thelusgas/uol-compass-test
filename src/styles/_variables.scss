@@ -1,13 +1,19 @@
 // colors
 $bg-dark: linear-gradient(180deg, #33383d 0%, #1c1d20 100%);
 $bg-dark-secondary: linear-gradient(90.16deg, #33383d 0%, #1c1d20 100%);
+$bg-dark-tertiary: #242424;
+$bg-dark-quaternary: #2b2b2b;
+$bg-dark-quinary: #454545;
+
 $bg-light: linear-gradient(105.96deg, #ffffff 0%, #f0f0f0 97.86%);
 
 $primary-on-dark: #ffffff;
 $secondary-on-dark: #e0e0e0;
+$tertiary-on-dark: #8d8d8d;
 
 $primary-on-light: #c12d18;
 $secondary-on-light: #222222;
+$tertiary-on-light: #26292c;
 
 $gradient-orange: linear-gradient(90deg, #ff2d04 0%, #c13216 100%);
 $gradient-blue: linear-gradient(90deg, #0487ff 0%, #1665c1 100%);
@@ -64,6 +70,17 @@ $gradient-blue: linear-gradient(90deg, #0487ff 0%, #1665c1 100%);
   font-weight: 700;
 }
 
+.typography-m-variant {
+  font-size: 3.2rem;
+  line-height: 3.9rem;
+  font-weight: 400;
+}
+
+.typography-m-variant-bold {
+  @extend .typography-m-variant;
+  font-weight: 700;
+}
+
 .typography-m {
   font-size: 3rem;
   line-height: 4.5rem;
@@ -83,6 +100,17 @@ $gradient-blue: linear-gradient(90deg, #0487ff 0%, #1665c1 100%);
 
 .typography-ms-bold {
   @extend .typography-ms;
+  font-weight: 700;
+}
+
+.typography-s-variant {
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: 400;
+}
+
+.typography-s-variant-bold {
+  @extend .typography-s-variant;
   font-weight: 700;
 }
 

@@ -15,8 +15,11 @@ $bg-image-path: "../../assets/ball-transparent.png";
     padding: 2.5rem 4rem;
 
     &--logo {
-      width: 28rem;
+      width: 20rem;
       padding: 1.2rem;
+      @include v.media-md {
+        width: 28rem;
+      }
     }
   }
 
@@ -67,6 +70,7 @@ $bg-image-path: "../../assets/ball-transparent.png";
 
   &__main {
     background: url($bg-image-path) no-repeat bottom left;
+    background-size: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

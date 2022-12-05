@@ -1,11 +1,12 @@
 import * as state from "./state";
 import { makeRequest } from "../../actions/make-request.js";
 import { router } from "../main.js";
+import { Url } from "../../utils/enum.js";
 import {
   mapMonthToName,
   mapDayToName,
   mapStateToInitials,
-} from "../../utils.js";
+} from "../../utils/utils.js";
 export const setupClock = ({ dateElement, hoursElement }) => {
   const date = new Date();
   const year = date.getFullYear();
@@ -23,7 +24,7 @@ export const setupClock = ({ dateElement, hoursElement }) => {
 
 export const setupClimate = async ({ temperatureElement, locationElement }) => {
   const res = await makeRequest({
-    url: "https://api.weatherapi.com/v1/current.json",
+    url: Url.weatherApi,
     method: "GET",
     body: {
       key: "f4c47af8ed9a4196bbe194011220412",
@@ -53,5 +54,11 @@ export const setupTimeout = (element) => {
 export const setupLogoutBtn = (element) => {
   element.addEventListener("click", () => {
     router.navigate("/");
+  });
+};
+
+export const setupGoToSearchBtn = (element) => {
+  element.addEventListener("click", () => {
+    router.navigate("/search");
   });
 };

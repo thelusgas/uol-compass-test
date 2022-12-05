@@ -27,6 +27,8 @@ html {
   margin: 0;
   padding: 0;
   font: inherit;
+  box-sizing: border-box;
+
   &::before,
   &::after {
     box-sizing: border-box;
@@ -49,6 +51,6 @@ body {
   #app {
     display: flex;
     min-height: 100vh;
-    min-width: 100vw;
+    width: 100vw;
   }
 }

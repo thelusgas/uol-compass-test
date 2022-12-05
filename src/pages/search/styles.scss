@@ -1,0 +1,191 @@
+@use "../../styles/variables" as v;
+
+$bg-image-path: "../../assets/login-bg.jpg";
+
+.search {
+  background: v.$bg-dark;
+  color: v.$primary-on-dark;
+  min-width: 100%;
+
+  display: flex;
+  > * {
+    flex: 1 1 100%;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    padding-block: 3.3rem;
+    padding-inline: 4.1rem;
+    gap: 4.7rem;
+    margin-bottom: 3.3rem;
+    @include v.media-xxl {
+      padding-block: 10.1rem 12.8rem;
+      padding-inline: 28.7rem 10.9rem;
+      margin-bottom: 7.4rem;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    color: v.$secondary-on-dark;
+    &--primary {
+      @extend .typography-xxl;
+    }
+    &--secondary {
+      @extend .typography-xs;
+    }
+  }
+
+  &__form {
+    display: flex;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+    @include v.media-xxl {
+      gap: 4.1rem;
+    }
+
+    &--input {
+      padding: 2rem 2rem 1.6rem 2rem;
+      display: flex;
+      flex: 1;
+
+      @extend .typography-xs;
+      color: v.$primary-on-dark;
+
+      background: v.$tertiary-on-light;
+
+      border: 1px solid v.$primary-on-dark;
+      border-radius: 5rem;
+
+      &::placeholder {
+        color: v.$tertiary-on-dark;
+      }
+    }
+
+    &--button {
+      cursor: pointer;
+      display: flex;
+      @include v.media-xxl {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      align-items: center;
+      justify-items: flex-start;
+
+      & > span {
+        grid-column: 1 / span 4;
+        display: none;
+        @include v.media-xxl {
+          display: flex;
+        }
+      }
+
+      & > img {
+        grid-column: 5 / span 1;
+      }
+
+      padding: 1.9rem 3.5rem;
+
+      background: v.$gradient-orange;
+      box-shadow: v.$box-shadow-btn;
+
+      border: none;
+      border-radius: 5rem;
+
+      @extend .typography-s-bold;
+      color: v.$primary-on-dark;
+
+      @media (hover: hover) {
+        &:hover {
+          filter: brightness(1.1);
+        }
+      }
+      transition: filter 0.2s;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    &--item {
+      display: flex;
+      padding: 3.3rem;
+      align-items: center;
+      gap: 2.3rem;
+
+      background: v.$tertiary-on-light;
+
+      border-radius: 0.8rem;
+      border: 1px solid v.$secondary-on-dark;
+    }
+    &--item-avatar {
+      border-radius: 50%;
+      width: 9.3rem;
+    }
+
+    &--item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      flex: 1;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    &--item-title {
+      @extend .typography-ms;
+      font-family: "Inter", sans-serif;
+      color: v.$primary-on-dark;
+    }
+    &--item-description {
+      @extend .typography-xs;
+      font-family: "Inter", sans-serif;
+      color: v.$tertiary-on-dark;
+      line-break: anywhere;
+    }
+    &--item-button {
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 1rem 3.2rem;
+
+      background: v.$gradient-blue;
+      box-shadow: v.$box-shadow-btn;
+
+      border: none;
+      border-radius: 0.8rem;
+
+      @extend .typography-s-bold;
+      color: v.$primary-on-dark;
+      text-transform: uppercase;
+
+      @media (hover: hover) {
+        &:hover {
+          filter: brightness(1.1);
+        }
+      }
+      transition: filter 0.2s;
+    }
+  }
+}
+
+.landing-image {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: url($bg-image-path) no-repeat center center/cover;
+  padding: 2.5rem;
+
+  @include v.media-md {
+    display: flex;
+  }
+}

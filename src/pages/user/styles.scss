@@ -1,0 +1,218 @@
+@use "../../styles/variables" as v;
+
+.user {
+  background: v.$bg-dark;
+  display: grid;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  @include v.media-xl {
+    padding: 13.3rem 15.6rem;
+  }
+}
+
+.user-inner {
+  box-sizing: border-box;
+  background: v.$bg-dark-tertiary;
+  padding: 2.4rem;
+  min-height: 100%;
+  min-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2.8rem;
+
+  @include v.media-xl {
+    display: grid;
+
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: min-content 1fr;
+  }
+
+  &__return {
+    align-self: flex-start;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  &__user-info {
+    grid-column: 1 / span 1;
+    grid-row: 2;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3.8rem;
+
+    @include v.media-xl {
+      flex-direction: column;
+      padding: 5.6rem;
+      gap: 6.3rem;
+    }
+
+    &--avatar {
+      width: 10rem;
+      border-radius: 50%;
+      @include v.media-xl {
+        width: 17.4rem;
+      }
+    }
+  }
+
+  &__user-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+    justify-content: center;
+
+    &--name {
+      @extend .typography-m-variant;
+      color: v.$primary-on-dark;
+    }
+    &--description {
+      @extend .typography-s-variant;
+      color: v.$tertiary-on-dark;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    border: 0;
+
+    display: flex;
+    padding: 1rem 3.2rem;
+
+    align-items: center;
+    justify-content: center;
+
+    background: v.$gradient-blue;
+    color: v.$primary-on-dark;
+    box-shadow: v.$box-shadow-btn;
+
+    @extend .typography-s-bold;
+    text-transform: uppercase;
+
+    &--rounded {
+      @extend .user-inner__button;
+      border-radius: 5rem;
+    }
+
+    &--regular {
+      @extend .user-inner__button;
+      border-radius: 0.8rem;
+
+      > span {
+        display: none;
+        @include v.media-xl {
+          display: flex;
+        }
+      }
+
+      > img {
+        width: 2rem;
+        max-width: unset;
+        @include v.media-xl {
+          display: none;
+        }
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+    transition: filter 0.2s;
+  }
+
+  &__repos-wrapper {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / span 1;
+    grid-row: 2;
+  }
+
+  &__repos-tabs {
+    display: flex;
+    background: v.$bg-dark-quaternary;
+    width: fit-content;
+    padding: 1rem;
+    gap: 2rem;
+
+    &--button {
+      @extend .typography-s;
+      color: v.$primary-on-dark;
+      background: transparent;
+      border: 0;
+      padding-block: 1rem;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+
+      border-bottom: 1px solid transparent;
+
+      @media (hover: hover) {
+        &:hover {
+          filter: brightness(1.1);
+        }
+      }
+      transition: all 0.2s;
+
+      &--active {
+        border-color: v.$primary-on-dark;
+      }
+    }
+
+    &--icon {
+      @extend .typography-xxs;
+      color: v.$primary-on-dark;
+      padding: 0.4rem 0.6rem;
+      border-radius: 50%;
+      background: v.$bg-dark-quinary;
+    }
+  }
+
+  &__user-repos {
+    display: flex;
+    flex-direction: column;
+    padding: 2.4rem;
+
+    background: v.$bg-dark-quaternary;
+  }
+
+  &__user-repos-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    padding: 2.4rem;
+
+    border-bottom: 1px solid v.$secondary-on-dark;
+
+    &--text-area {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    &--name {
+      @extend .typography-s-bold;
+      color: v.$primary-on-dark;
+    }
+    &--description {
+      @extend .typography-s;
+      color: v.$tertiary-on-dark;
+    }
+  }
+}

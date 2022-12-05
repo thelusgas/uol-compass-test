@@ -4,12 +4,7 @@ import "./styles.scss";
 import LogoDark from "../../assets/compass-logo-black.png";
 import IconCloud from "../../assets/svg/cloud.svg";
 // actions
-import {
-  setupClock,
-  setupClimate,
-  setupTimeout,
-  setupLogoutBtn,
-} from "./actions.js";
+import * as actions from "./actions.js";
 
 export function Dashboard() {
   document.querySelector("#app").innerHTML = `
@@ -54,26 +49,28 @@ export function Dashboard() {
                 <span class="dashboard__footer--text-small">seconds</span>
             </div>
             <div class="dashboard__footer--btn-wrapper">
-                <button class="footer-button--primary">Acessar Busca</button>
+                <button class="footer-button--primary go-to-search-btn">Acessar Busca</button>
                 <button class="footer-button--secondary logout-btn">Logout</button>
             </div>   
       </footer>      
     </div>
   `;
 
-  setupClock({
+  actions.setupClock({
     dateElement: document.querySelector(".dashboard__clock--date"),
     hoursElement: document.querySelector(".dashboard__clock--time"),
   });
 
-  void setupClimate({
+  void actions.setupClimate({
     temperatureElement: document.querySelector(
       ".dashboard__climate--temperature"
     ),
     locationElement: document.querySelector(".dashboard__climate--location"),
   });
 
-  setupTimeout(document.querySelector(".dashboard__footer--timer"));
+  actions.setupTimeout(document.querySelector(".dashboard__footer--timer"));
 
-  setupLogoutBtn(document.querySelector(".logout-btn"));
+  actions.setupLogoutBtn(document.querySelector(".logout-btn"));
+
+  actions.setupGoToSearchBtn(document.querySelector(".go-to-search-btn"));
 }
